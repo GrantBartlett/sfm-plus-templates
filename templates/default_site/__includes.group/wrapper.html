@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    {exp:seo_lite use_last_segment="yes" friendly_segments="yes" default_title={exp:partials:get name="page_title"} default_keywords={exp:partials:get name="meta_keywords"} default_description={exp:partials:get name="meta_description"}}
+
+      <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="assets/css/main.min.css" rel="stylesheet">
+    <link href="/assets/css/main.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,13 +20,58 @@
   </head>
   <body>
 
+    {embed="__includes/header"}
+
     <div class="container">
+    <div id="search-results"></div>
     {exp:partials:get name="main"}
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+    <script>
+
+        (function ($) {
+            $(function () {
+                var $form = $('#search-form'), // Search form
+                        $target = $('#search-results'), // Results container
+                        rp = 'search/ajax-results'; // Template for results only
+
+                // Function to execute on success
+                var success = function (data, status, xhr) {
+                    $target.html(data);
+                };
+
+                // Hijack the form on submit
+                $form.submit(function () {
+
+                    // Tell target we're loading
+                    $target.html('<p>Loading...</p>');
+
+                    // Add custom result page to data
+                    var data = $form.serialize()
+                            + '&result_page=' + rp;
+
+                    // Perform the ajax call
+                    $.ajax({
+                        type: 'POST',
+                        url: $form.attr('action'),
+                        data: data,
+                        success: success,
+                        dataType: 'html'
+                    });
+
+                    // Don't submit the form afterwards
+                    return false;
+                });
+            });
+        })(jQuery);
+
+
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/scripts.min.js"></script>
+    <script src="/assets/js/scripts.min.js"></script>
   </body>
 </html>
