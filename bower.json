@@ -18,5 +18,10 @@
     "assets/vendor",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.2",
+    "grunt-modernizr": "~0.6.0",
+    "modernizr": "~2.8.3"
+  }
 }
