@@ -1,0 +1,22 @@
+{
+  "name": "sfm-plus-templates",
+  "version": "1.0.",
+  "homepage": "https://github.com/GrantBartlett/sfm-plus-templates",
+  "authors": [
+    "Grant Bartlett <grant@smswmedia.com>"
+  ],
+  "description": "SFM Plus Templates for Expression Engine v2.9.2",
+  "keywords": [
+    "expressionengine",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ]
+}
