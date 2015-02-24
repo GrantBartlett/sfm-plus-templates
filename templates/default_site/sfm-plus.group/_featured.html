@@ -1,0 +1,115 @@
+<section class="competitions-featured">
+
+    <div class="row">
+        <div class="col-xs-12" {dir_lang}>
+            <header class="entry-header">
+                <h1 class="section-header {if '{language_code}' == 'en'}text-left {if:else}text-right{/if} mb-0 pb-10">
+                    {if '{language_code}' == 'en'}
+                        <span class="sign">{comp_new_{language_code}} </span> {comp_competitions_{language_code}}
+                    {if:else}
+                        <span class="sign">{comp_competitions_{language_code}}</span> {comp_new_{language_code}}
+                    {/if}
+                </h1>
+
+                <div class="entry-description">
+                    <p class="lead">{comp_newcomps_desc_{language_code}}</p>
+                </div>
+            </header>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12" {dir_lang}>
+            <div class="row">
+                {exp:channel:entries channel="offers" show_future_entries="yes" show_expired="no" orderby="entry_date" limit="3" sort="desc" search:offer_newest="y" search:offer_comphide="no"}
+
+                <div class="col-xs-12 col-sm-4 col-md-4 {if '{language_code}' == 'en'}{if:else}pull-right{/if}">
+
+                    <div class="polaroid drop-shadow">
+                        {if offer_custom_competition == 'n'}
+                        <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}}">
+                            <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                        </a>
+                        <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
+                        {if:else}
+                        <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}">
+                            <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                        </a>
+                        <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
+                        {/if}
+                    </div>
+
+                    <div class="comp-excerpt">
+                        <h4>
+                            {if offer_custom_competition == 'n'}
+                            <a href="{base}sfm-plus/offers/{url_title}" title="{offer_name_{language_code}}">{offer_name_{language_code}}</a>
+                            {if:else}
+                            <a href="{base}{offer_custom_competition_url}" title="{offer_name_{language_code}}">{offer_name_{language_code}}</a>
+                            {/if}
+                        </h4>
+                        <p>{offer_excerpt_{language_code}}</p>
+                    </div>
+
+                </div>
+
+                {/exp:channel:entries}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+{exp:channel:entries channel="offers" show_future_entries="yes" show_expired="no" orderby="expiration_date" limit="2" sort="asc" search:offer_newest="n" dynamic="no" search:offer_comphide="no"}
+<section class="competitions-ending">
+
+        <div class="row">
+            <div class="col-md-6 {if '{language_code}' == 'en'}left{if:else}right{/if}" {dir_lang}>
+                <header class="entry-header">
+                    <h1 class="section-header {if '{language_code}' == 'en'}text-left {if:else}text-right{/if} mb-0 pb-10">
+                        <span class="sign">{comp_ending_{language_code}}</span> {comp_soon_{language_code}}</h1>
+
+                    <div class="entry-description">
+                        <p class="lead">{comp_endingcomps_desc_{language_code}}</p>
+                    </div>
+                </header>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 {if '{language_code}' == 'en'}left{if:else}right{/if}">
+                        <div class="polaroid drop-shadow">
+                            {if offer_custom_competition == 'n'}
+                            <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}} ">
+                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            </a>
+                            <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}} "><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
+                            {if:else}
+                            <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}">
+                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            </a>
+                            <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
+                            {/if}
+                        </div>
+
+                        <div class="comp-excerpt">
+                            <h1>
+                                {if offer_custom_competition == 'n'}
+                                <a href="{base}sfm-plus/offers/{url_title}" title="{offer_name_{language_code}}">{offer_name_{language_code}}</a>
+                                {if:else}
+                                <a href="{base}{offer_custom_competition_url}" title="{offer_name_{language_code}}">{offer_name_{language_code}}</a>
+                                {/if}
+                            </h1>
+                            <p>{offer_excerpt_{language_code}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+{/exp:channel:entries}

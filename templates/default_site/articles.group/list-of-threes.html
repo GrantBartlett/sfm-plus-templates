@@ -1,0 +1,82 @@
+<section class="content-section l-1c col-3 mb-40">
+
+  <div class="c-1">
+
+    <div class="g-all-thirds">
+      <hr>
+      <h2><a href="/articles/category/style/">{fashion_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="31" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+
+    <div class="g-all-thirds">
+      <hr>
+      <h2><a href="/articles/category/health-beauty/">{beauty_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="34" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+    <div class="g-all-thirds g-all-l">
+      <hr>
+      <h2><a href="/articles/category/culture/">{lifestyle_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="30" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+  </div>
+
+  <div class="c-1">
+    <div class="g-all-thirds">
+      <hr>
+      <h2><a href="/articles/category/technology/">{technology_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="35" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+    <div class="g-all-thirds">
+      <hr>
+      <h2><a href="/articles/category/travel/">{news_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="32" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+    <div class="g-all-thirds g-all-l">
+      <hr>
+      <h2><a href="/articles/category/men/">{men_{language_code}}</a></h2>
+      <ul>
+        {exp:channel:entries channel="entry" offset="0" limit="3" category_group="6" category="36" dynamic="no" cache="yes" refresh="10" status="{embed:status}" show="not 36|30"}
+        {if no_results}<li>No articles in this category yet, don't worry they will be coming soon.</li>{/if}
+        <li {if language_code == "ar" AND entry_name_ar == ""}dir="ltr"{/if}>
+          <a href="{base}articles/reading/{url_title}/">{if (language_code == "ar" && entry_name_ar == "") || language_code == "en"}{entry_name_en}{if:else}{entry_name_ar}{/if}</a>
+        </li>
+        {/exp:channel:entries}
+      </ul>
+    </div>
+  </div>
+</section>

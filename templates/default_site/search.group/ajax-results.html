@@ -1,14 +1,14 @@
 <section class="search-description">
     <div class="row">
         <div class="col-xs-12">
-            <h3 class="category">
+            <h2 class="category">
                 Search {if segment_2 != ""}results for...{/if}
-            </h3>
-
+            </h2>
+            <hr>
             {if segment_2 != ""}
-            <h1 class="entry-title text-capitalize">
+            <h3 class="text-capitalize">
                 {exp:low_search:keywords query="{segment_3}"}
-            </h1>
+            </h3>
             {/if}
         </div>
     </div>
@@ -21,7 +21,6 @@
             <p>Search for articles, videos, lookbooks, vouchers and competitions on {site_name}. Enter your keyword and click search.</p>
         </div>
     </header>
-
 
     {exp:low_search:results collection="entry" query="{segment_3}" encode="no" limit="10" status="open|english only|arabic only" category="10|29|9|28|8|5|11" paginate_base="search/{segment_3}"}
     {exp:ce_cache:delete id="content_{language_code}"}
@@ -133,7 +132,6 @@
     </ul>
     {/pagination_links}
     {/paginate}
-
 
     {if segment_2 != ""}
     <footer class="row">

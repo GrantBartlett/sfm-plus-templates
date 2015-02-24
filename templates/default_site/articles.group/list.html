@@ -1,0 +1,57 @@
+{exp:channel:entries
+    channel="entry"
+    sticky="no"
+    dynamic="no"
+    category="{embed:category}"
+    category_group="6"
+    offset="4"
+    limit="{embed:limit}"
+    orderby="entry_date"
+    sort="desc"
+    status="{embed:status}"
+    paginate="both" paginate_base="articles/category/{segment_3}"
+}
+<article class="l-70-30cr post">
+    <a href="{base}articles/reading/{url_title}/" class="c-1"><img src="{entry_image:3_col_large}" data-src="{entry_image:3_col_large}" style="width: 100%"></a>
+
+    <div class="c-2">
+        {categories limit="1" show_group="6" show="not 36|30"}
+        <a href="{base}articles/category/{category_url_title}/" class="category">
+            {category_name_{language_code}}
+        </a>
+        {/categories}
+        <h1><a href="{base}articles/reading/{url_title}/">{entry_name_lng}</a></h1>
+        <p>{entry_description_lng}</p>
+    </div>
+</article>
+{if no_results}
+Sorry, there are no articles yet...
+{/if}
+{paginate}
+<div class="pagination-centered">
+    {pagination_links}
+    <ul class="pagination">
+        {first_page}
+        <li><a href="{pagination_url}#articles" class="page-first">First Page</a></li>
+        {/first_page}
+
+        {previous_page}
+        <li><a href="{pagination_url}#articles" class="page-previous">Previous Page</a></li>
+        {/previous_page}
+
+        {page}
+        <li><a href="{pagination_url}#articles" class="page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a></li>
+        {/page}
+
+        {next_page}
+        <li><a href="{pagination_url}#articles" class="page-next">Next Page</a></li>
+        {/next_page}
+
+        {last_page}
+        <li><a href="{pagination_url}#articles" class="page-last">Last Page</a></li>
+        {/last_page}
+    </ul>
+    {/pagination_links}
+</div>
+{/paginate}
+{/exp:channel:entries}

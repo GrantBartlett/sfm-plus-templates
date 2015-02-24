@@ -1,0 +1,50 @@
+<section class="content-section featured-articles row">
+    <div class="col-xs-12">
+
+        <div class="row">
+            {exp:channel:entries channel="entry" category_group="6" category="{embed:category}" limit="1" cache="yes" refresh="10" sticky="no" status="{embed:status}"}
+                <article class="col-md-8 {entry_lng}" {entry_dir_lng}>
+
+                    <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">
+                        <img src="{entry_image:70_30_large}" class="thumbnail img-responsive" alt="{entry_name_{language_code}}" style="width:100%;">
+                    </a>
+
+                    <h3>
+                         <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">{entry_name_{language_code}}</a>
+                        <span class="label label-default">{categories limit="1" show_group="6"}{category_name_{language_code}}{/categories}</span>
+                    </h3>
+
+                    <p>{entry_description_{language_code}}</p>
+                </article>
+                {if no_results}Sorry, there are no articles yet...{/if}
+            {/exp:channel:entries}
+
+            <div class="col-md-4">
+                <div class="row">
+                    {exp:channel:entries channel="entry" category_group="6" category="{embed:category}" limit="3" offset="1" cache="yes" refresh="10" sticky="no" status="{embed:status}"}
+                    <div class="col-md-12">
+                        <article class="{entry_lng}" {entry_dir_lng}>
+
+                            <h4>
+                                <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">{entry_name_{language_code}}</a>
+                            </h4>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">
+                                        <img src="{entry_image:3_col_large_sq}" class="thumbnail" alt="{entry_name_{language_code}}" style="width:100%">
+                                    </a>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>{entry_excerpt_{language_code}}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {/exp:channel:entries}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

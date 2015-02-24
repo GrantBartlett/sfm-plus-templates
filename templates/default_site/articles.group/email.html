@@ -1,0 +1,57 @@
+{embed="__includes/plain_wrapper" body_class="send-to-friend"}
+
+{exp:partials:set name="page_title"}Email Article{/exp:partials:set}
+
+{exp:partials:set name="content"}
+
+  {exp:channel:entries channel="entry" url_title="{segment_3}" track_views="two" status="open|english only|arabic only"}
+    <h1><img src="/themes/site_themes/saudifashion/send-to-friend-title-icon.png"> Email this</h1>
+    <p style="margin-top: 5px">Tell someone about this, just fill out the form below.</p>
+
+    {exp:freeform:form
+        form_name="tell_a_friend"
+        required="name|email|friends_name|recipient_email_user"
+        return="/articles/reading/{url_title}/"
+        recipient_user_input="yes"
+        recipient_user_limit="1"
+        recipient_user_template="tell_a_friend"
+        form:class="custom"
+    }
+
+        <p><label>Your Name: <input type="text" name="name" data-rule-required="true" data-msg-required="Please enter your name" /></label></p>
+        <p><label>Your Email: <input type="text" name="email" data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" /></label></p>
+
+        <p><label>Friends Name: <input type="text" name="friends_name" data-rule-required="true" data-msg-required="Please enter your friend's name" /></label></p>
+        <p><label>Friends Email: <input type="text" name="recipient_email_user" data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" /></label></p>
+
+        <p><label>Comments:<textarea name="tell_a_friend_message"></textarea></label></p>
+
+        {if freeform:captcha}
+            <p>Please enter the word you see in the image below:</p>
+            <p>{freeform:captcha}<br />
+            <input type="text" name="captcha" style="width:140px;" /></p>
+        {/if}
+
+        <p><input type="submit" name="submit" value="Send!" class="button radius small" /></p>
+
+        <input type="hidden" name="article_title" value="{entry_name_{language_code}}" />
+        <input type="hidden" name="article_url" value="{base}articles/reading/{url_title}/" />
+
+    {/exp:freeform:form}
+    <a class="close-reveal-modal">&#215;</a>
+  {/exp:channel:entries}
+
+{/exp:partials:set}
+
+{exp:partials:set name="footer_script_includes"}
+<script src="/assets/js/jquery.validate.min.js"></script>
+{/exp:partials:set}
+
+{exp:partials:set name="footer_last"}
+<script>
+  $(function () {
+    // form validation
+    $("form").validate();
+  })
+</script>
+{/exp:partials:set}

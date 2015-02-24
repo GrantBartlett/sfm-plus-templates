@@ -1,0 +1,90 @@
+{embed="__includes/wrapper" body_class="articles reading" nav_active=""}
+
+
+{exp:partials:set name="page_title"}Articles{/exp:partials:set}
+
+{exp:channel:entries
+channel="entry"
+url_title="{segment_3}"
+status="Pending Review"
+show_future_entries="yes"
+show_expired="yes"
+}
+{exp:partials:set name="meta_og"}
+<meta property="og:title" content="{entry_name_{language_code}}" />
+<meta property="og:description" content="{entry_excerpt_{language_code}}" />
+{/exp:partials:set}
+<script>
+    var category = "{categories limit="1" show_group="6"}{category_name_en}{/categories}";
+    $('body').attr('data-category', category.toLowerCase());
+</script>
+{exp:partials:set name="meta_image"}<meta property="og:image" content="{entry_image}" />{/exp:partials:set}
+
+{/exp:channel:entries}
+
+{exp:partials:set name="content"}
+<div id="content">
+
+    <section class="content-section detail js_adaptive-video">
+        {exp:channel:entries
+        channel="entry"
+        url_title="{segment_3}"
+        status="Pending Review"
+        show_future_entries="yes"
+        show_expired="yes"}
+        <article id="post-id{entry_id}" {entry_dir_lng}>
+        <header class="entry-header">
+            {categories limit="1" show_group="6"}<h3 class="category"><a href="{base}articles/category/{category_url_title}/" title="View all posts in {category_name}">
+                    {category_name_{language_code}}
+                </a></h3>
+            {/categories}
+            <h1 class="entry-title">
+                {entry_name_lng}
+            </h1>
+            {embed="_entry/meta_info" url_title="{url_title}" entry_date="{entry_date format='%F %j, %Y'}" author="{author}" type="article" title="{entry_name_lng}"}
+        </header>
+        <div class="entry-content">
+            {if show_featured_image == "y"}
+            {entry_image}
+            <figure class="entry-thumb">
+                <img src="{url:article_detail}" style="width: 100%">
+                <figcaption>
+                    <small class="entry-thumb-credit">{credit}</small>
+                    <p class="image-description">{entry_image_description}</p>
+                </figcaption>
+            </figure>
+            {/entry_image}
+            {/if}
+            {entry_content_lng}
+        </div>
+        </article>
+
+        {if "{categories show='29'}{category_id}{/categories}" == "29"}
+        <article class="clear">
+            <h1 class="section-header">{pictures_{language_code}}</h1>
+            {lookbook}
+        </article>
+        {/if}
+
+        {if "{categories show='38'}{category_id}{/categories}" == "38"}
+        <article class="clear">
+            {fashion_finder}
+        </article>
+        {/if}
+
+        <hr class="clear">
+        {embed="__includes/disqus"}
+        {embed="articles/related" status="{entry_status_lng}"}
+        {embed="articles/you-might-also-like" category="{categories show_group="6" backspace="1"}{category_id}|{/categories}" status="{entry_status_lng}"}
+        {/exp:channel:entries}
+
+    </section>
+
+</div>
+{/exp:partials:set}
+
+{exp:partials:set name="aside-right"}
+{embed="_aside/articles" article-list-limit="12" status="{entry_status_lng}"}
+{/exp:partials:set}
+
+<script src="/assets/js/adaptive_video.js"></script>

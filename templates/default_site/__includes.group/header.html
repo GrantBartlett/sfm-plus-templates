@@ -1,30 +1,28 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
                 <span class="icon-bar"></span> <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SFM Plus</a>
+            <a class="navbar-brand" href="{base}">SFM Plus</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right" form_id="search-form" form_role="search"}
-        <input type="text" class="form-control" placeholder="{search_{language_code}}" name="keywords" id="keywords">
-        <button type="submit" class="btn btn-default">Search</button>
-        {/exp:low_search:form}
-
-
+            {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right" form_id="search-form" form_role="search"}
+            <input type="text" class="form-control" placeholder="{search_{language_code}}" name="keywords" id="keywords">
+            <button type="submit" class="btn btn-default">Search</button>
+            {/exp:low_search:form}
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">News</a></li>
-                <li><a href="#">Fashion</a></li>
+                <li><a href="{base}articles/category/news/">News</a></li>
+                <li><a href="{base}articles/category/fashion-beauty/">Fashion</a></li>
                 <li><a href="#">iStyle</a></li>
-                <li><a href="#">Sales</a></li>
-                <li><a href="#">Competitions</a></li>
+                <li><a href="{base}articles/category/sales/">Sales</a></li>
+                <li><a href="{base}sfm-plus/">Competitions</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More
                         <span class="caret"></span></a>
@@ -38,7 +36,6 @@
                 </li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
+
     </div>
-    <!-- /.container-fluid -->
 </nav>
