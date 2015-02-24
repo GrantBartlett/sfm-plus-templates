@@ -2,19 +2,10 @@
 
     <div class="row">
         <div class="col-xs-12" {dir_lang}>
-            <header class="entry-header">
-                <h1 class="section-header {if '{language_code}' == 'en'}text-left {if:else}text-right{/if} mb-0 pb-10">
-                    {if '{language_code}' == 'en'}
-                        <span class="sign">{comp_new_{language_code}} </span> {comp_competitions_{language_code}}
-                    {if:else}
-                        <span class="sign">{comp_competitions_{language_code}}</span> {comp_new_{language_code}}
-                    {/if}
-                </h1>
-
-                <div class="entry-description">
-                    <p class="lead">{comp_newcomps_desc_{language_code}}</p>
-                </div>
-            </header>
+            <h2>
+                {comp_new_{language_code}} {comp_competitions_{language_code}}
+            </h2>
+            <p>{comp_newcomps_desc_{language_code}}</p>
             <hr>
         </div>
     </div>
@@ -66,15 +57,14 @@
 <section class="competitions-ending">
 
         <div class="row">
-            <div class="col-md-6 {if '{language_code}' == 'en'}left{if:else}right{/if}" {dir_lang}>
-                <header class="entry-header">
-                    <h1 class="section-header {if '{language_code}' == 'en'}text-left {if:else}text-right{/if} mb-0 pb-10">
-                        <span class="sign">{comp_ending_{language_code}}</span> {comp_soon_{language_code}}</h1>
 
-                    <div class="entry-description">
-                        <p class="lead">{comp_endingcomps_desc_{language_code}}</p>
-                    </div>
-                </header>
+            <div class="col-xs-12" {dir_lang}>
+                <h2>
+                    {comp_ending_{language_code}} {comp_soon_{language_code}}
+                </h2>
+
+                <p>{comp_endingcomps_desc_{language_code}}</p>
+                <hr>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-6">

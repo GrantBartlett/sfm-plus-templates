@@ -2,26 +2,15 @@
     <div class="row">
         <div class="col-xs-12">
 
-            <div class="row">
-                <div class="col-md-12">
+            <br class="clearfix">
 
-                    <br class="clearfix">
-                    <header class="entry-header">
-                        <h1 class="section-header {if '{language_code}' == 'en'}text-left {if:else}text-right{/if}">
-                            {if '{language_code}' == 'en'}
-                                <span class="sign">{comp_all_{language_code}} </span> {comp_competitions_{language_code}}
-                            {if:else}
-                                <span class="sign">{comp_all_{language_code}} </span> {comp_competitions_newall_{language_code}}
-                            {/if}
-                        </h1>
+            <h2>
+                {comp_all_{language_code}} {comp_competitions_{language_code}}
+            </h2>
 
-                        <div class="entry-description">
-                            <p class="lead">{comp_allcomps_desc_{language_code}}</p>
-                        </div>
-                    </header>
-                    <hr>
-                </div>
-            </div>
+            <p>{comp_allcomps_desc_{language_code}}</p>
+
+            <hr>
 
             <div class="row">
                 {exp:channel:entries channel="offers" cache="yes" refresh="30" show_future_entries="yes" show_expired="yes" orderby="expiration_date" sort="desc" dynamic="no" {if '{embed:detail_entry_id}'}entry_id="not {embed:detail_entry_id}{/if}" search:offer_comphide="no"}
