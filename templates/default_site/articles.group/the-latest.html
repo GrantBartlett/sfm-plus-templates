@@ -1,4 +1,4 @@
-<section class="content-section the-latest">
+<section id="lazythis" class="content-section the-latest">
 
     <header class="entry-header">
         <h2>{the_latest_{language_code}}</h2>
@@ -7,9 +7,12 @@
 
     {exp:channel:entries channel="entry" sticky="no" dynamic="no" category="{embed:category}" category_group="6" offset="{embed:offset}" limit="{embed:limit}" cache="yes" refresh="10" orderby="entry_date" sort="desc" status="{embed:status}"}
         <article class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">
-                    <img src="{entry_image:3_col_large}" class="thumbnail img-responsive" alt="{entry_name_{language_code}}">
+                    <img data-original="{entry_image:3_col_large}" class="lazy thumbnail img-responsive" alt="{entry_name_{language_code}}" width="264" height="176">
+                    <noscript>
+                        <img src="{entry_image:3_col_large}" class="thumbnail img-responsive" alt="{entry_name_{language_code}}" width="264" height="176">
+                    </noscript>
                 </a>
             </div>
 

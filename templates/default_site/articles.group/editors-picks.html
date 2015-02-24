@@ -14,7 +14,10 @@
                 {exp:channel:entries channel="entry" category_group="6" cache="yes" refresh="10" limit="3" sticky="yes" dynamic="no" status="{embed:status}"}
                 <article class="col-md-4">
                     <a href="{base}articles/reading/{url_title}/" title="{entry_name_{language_code}}">
-                        <img src="{entry_image:3_col_large}" class="thumbnail img-responsive" title="{entry_name_{language_code}}">
+                        <img data-original="{entry_image:3_col_large}" width="264" height="176" class="lazy thumbnail img-responsive" title="{entry_name_{language_code}}">
+                        <noscript>
+                        <img src="{entry_image:3_col_large}" width="264" height="176" class="thumbnail img-responsive" title="{entry_name_{language_code}}">
+                        </noscript>
                     </a>
 
                     <h4>
