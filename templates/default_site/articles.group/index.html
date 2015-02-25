@@ -7,11 +7,11 @@
     {if segment_2 == ""}
 
         {embed="articles/featured-articles" status="{entry_status_lng}"}
-        <hr>
+
         {embed="articles/editors-picks" status="{entry_status_lng}"}
-        <hr>
+
         {embed="articles/the-latest" limit="12" category_group="6" offset="4" status="{entry_status_lng}"}
-        <hr>
+
         {embed="articles/list-of-threes" status="{entry_status_lng}"}
 
     {if:else}
@@ -28,7 +28,7 @@
                 <hr>
 
                 {embed="articles/featured-articles" category="{last_segment_category_id}" status="{entry_status_lng}"}
-                <hr>
+
                 {embed="articles/editors-picks" status="{entry_status_lng}"}
 
                 {embed="articles/the-latest" limit="12" category_group="6" offset="4" status="{entry_status_lng}"}

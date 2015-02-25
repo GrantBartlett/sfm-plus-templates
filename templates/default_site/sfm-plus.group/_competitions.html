@@ -22,12 +22,18 @@
                             <div class="polaroid drop-shadow">
                                 {if offer_custom_competition == 'n'}
                                 <a href="{base}sfm-plus/offers/{url_title}" class="image">
-                                    <img src="{offer_image:310x310}" class="thumbnail img-responsive">
+                                    <img data-original="{offer_image:310x310}" class="lazy thumbnail img-responsive">
+                                    <noscript>
+                                        <img src="{offer_image:310x310}" class="thumbnail img-responsive">
+                                    </noscript>
                                 </a>
                                 <a href="{base}sfm-plus/offers/{url_title}" title="{if current_time > expiration_date}{comp_expired_{language_code}} {if:else}{enter_now_{language_code}}{/if}"><span class="category fixed-enter small">{if current_time > expiration_date}{comp_expired_{language_code}} {if:else}{enter_now_{language_code}}  <i class="fa fa-plus"></i>{/if}</span></a>
                                 {if:else}
                                 <a href="{base}{offer_custom_competition_url}" class="image">
-                                    <img src="{offer_image:310x310}" class="thumbnail img-responsive">
+                                    <img data-original="{offer_image:310x310}" class="lazy thumbnail img-responsive">
+                                    <noscript>
+                                        <img src="{offer_image:310x310}" class="thumbnail img-responsive">
+                                    </noscript>
                                 </a>
                                 <a href="{base}{offer_custom_competition_url}" title="{if current_time > expiration_date}{comp_expired_{language_code}} {if:else}{enter_now_{language_code}}{/if}"><span class="category fixed-enter small">{if current_time > expiration_date}{comp_expired_{language_code}} {if:else}{enter_now_{language_code}}  <i class="fa fa-plus"></i>{/if}</span></a>
                                 {/if}

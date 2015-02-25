@@ -21,12 +21,18 @@
                     <div class="polaroid drop-shadow">
                         {if offer_custom_competition == 'n'}
                         <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}}">
-                            <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            <img data-original="{offer_image:350x350}" class="lazy thumbnail img-responsive">
+                            <noscript>
+                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            </noscript>
                         </a>
                         <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
                         {if:else}
                         <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}">
-                            <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            <img data-original="{offer_image:350x350}" class="lazy thumbnail img-responsive">
+                            <noscript>
+                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                            </noscript>
                         </a>
                         <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
                         {/if}
@@ -74,12 +80,18 @@
                         <div class="polaroid drop-shadow">
                             {if offer_custom_competition == 'n'}
                             <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}} ">
-                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                                <img data-original="{offer_image:350x350}" class="lazy thumbnail img-responsive">
+                                <noscript>
+                                    <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                                </noscript>
                             </a>
                             <a href="{base}sfm-plus/offers/{url_title}" title="{enter_now_{language_code}} "><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
                             {if:else}
                             <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}">
-                                <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                                <img data-original="{offer_image:350x350}" class="thumbnail img-responsive">
+                                <noscript>
+                                    <img src="{offer_image:350x350}" class="thumbnail img-responsive">
+                                </noscript>
                             </a>
                             <a href="{base}{offer_custom_competition_url}" title="{enter_now_{language_code}}"><span class="category fixed-enter">{enter_now_{language_code}}  <i class="fa fa-plus"></i></span></a>
                             {/if}

@@ -23,6 +23,7 @@
     "bootstrap": "~3.3.2",
     "grunt-modernizr": "~0.6.0",
     "modernizr": "~2.8.3",
-    "jquery.lazyload": "~1.9.3"
+    "jquery.lazyload": "~1.9.3",
+    "shufflejs": "~3.0.4"
   }
 }

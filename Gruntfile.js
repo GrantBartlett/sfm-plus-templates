@@ -19,8 +19,11 @@ module.exports = function (grunt) {
         'assets/vendor/bootstrap/js/tab.js',
         'assets/vendor/bootstrap/js/affix.js',
         'assets/vendor/bootstrap/js/affix.js',
+        'assets/vendor/modernizr/modernizr.js',
         'assets/vendor/jquery.lazyload/jquery.lazyload.min.js',
-        'assets/js/_*.js'
+        'assets/vendor/shufflejs/dist/jquery.shuffle.min.js',
+        'assets/js/_*.js',
+        'assets/js/plugins/*.js'
     ];
 
     grunt.initConfig({
@@ -30,7 +33,7 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'assets/js/*.js',
+                'assets/js/_*.js',
                 '!assets/js/scripts.js',
                 '!assets/**/*.min.*'
             ]
