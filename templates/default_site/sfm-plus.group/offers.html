@@ -1,0 +1,24 @@
+{embed="__includes/wrapper" body_class="competitions"}
+
+{exp:partials:set name="main"}
+    <div class="row">
+        {exp:channel:entries channel="offers" url_title="{last_segment}" show_future_entries="yes" show_expired="yes" dynamic="no" search:offer_comphide="no"}
+
+        {if current_time > expiration_date}
+        <section class="comp-ended">
+            <header class="entry-header">
+                <h2>{comp_detail_ended_{language_code}}</h2>
+
+                <p class="lead">{comp_detail_endeddesc_{language_code}}</p>
+            </header>
+        </section>
+        {/if}
+
+        <section class="comp-main">
+            {offer_image:650x350 wrap="image"}
+            {offer_body_{language_code}}
+        </section>
+
+        {/exp:channel:entries}
+    </div>
+{/exp:partials:set}

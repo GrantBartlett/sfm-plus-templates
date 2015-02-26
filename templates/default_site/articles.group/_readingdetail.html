@@ -18,6 +18,7 @@
                        {entry_name_{language_code}}
                         <span class="label label-default">{categories limit="1" show_group="6"}{category_name_{language_code}}{/categories}</span>
                     </h2>
+                    <p class="lead">Published {entry_date:relative about="nearly"}</p>
                     <hr>
                 </header>
 
@@ -33,7 +34,7 @@
                     </figure>
                     {/entry_image}
                 {/if}
-                {entry_content_lng}
+                {entry_content_{language_code}}
                 </div>
             </article>
 
@@ -50,7 +51,7 @@
             </article>
             {/if}
 
-            {embed="articles/you-might-also-like" category="{categories show_group="6" backspace="1"}{category_id}|{/categories}" status="{entry_status_lng}"}
+        {embed="articles/you-might-also-like" category="{categories show_group="6" backspace="1"}{category_id}|{/categories}" status="{entry_status_lng}"}
         {/exp:channel:entries}
     </section>
 </div>

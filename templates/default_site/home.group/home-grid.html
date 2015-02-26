@@ -1,4 +1,10 @@
 <style>
+    .entry-header .label-default {
+        background-color: #3F324D;
+        float: left;
+        margin-right: 15px;
+    }
+
     #grid {
         margin-left: -5px;
         margin-right: -5px;
@@ -23,20 +29,24 @@
     }
 </style>
 
-<!--<div class="filter-options">-->
-    <!--<button class="btn btn-default" data-group="wallpaper">Wallpapers</button>-->
-    <!--<button class="btn btn-default" data-group="graphics">Graphic Design</button>-->
-    <!--<button class="btn btn-default" data-group="photography">Photos</button>-->
-    <!--<button class="btn btn-default" data-group="3d">3D Renders</button>-->
-<!--</div>-->
+{!--
+<div class="filter-options">
+    <button class="btn btn-default" data-group="wallpaper">Wallpapers</button>
+    <button class="btn btn-default" data-group="graphics">Graphic Design</button>
+    <button class="btn btn-default" data-group="photography">Photos</button>
+    <button class="btn btn-default" data-group="3d">3D Renders</button>
+</div>
+--}
 
 <div id="grid" class="row">
-
+    {!--
     {exp:channel:entries channel="entry" sticky="no" dynamic="no" limit="6" category="{embed:category}" category_group="6" cache="yes" refresh="10" orderby="entry_date" sort="desc" status="{embed:status}"}
     <div class="col-xs-6 col-sm-4 col-md-3" data-groups='["photography"]'>
         <img src="{entry_image}" class="thumbnail img-responsive" alt="{entry_name_{language_code}}">
     </div>
     {/exp:channel:entries}
+    --}
+
 
     <div class="col-xs-6 col-sm-4 col-md-3" data-groups='["graphics"]'>
         <img src="http://placehold.it/300x566" alt="" class="thumbnail img-responsive">

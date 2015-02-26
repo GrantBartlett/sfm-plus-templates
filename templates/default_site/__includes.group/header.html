@@ -14,9 +14,11 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right" form_id="search-form" form_role="search"}
-            <input type="text" class="form-control" placeholder="{search_{language_code}}" name="keywords" id="keywords">
-            <button type="submit" class="btn btn-default">Search</button>
+            {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right hidden-sm" form_id="search-form" form_role="search"}
+            <div class="input-group margin-bottom-sm">
+                <input type="text" class="form-control" placeholder="{search_{language_code}}" name="keywords" id="keywords">
+                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+            </div>
             {/exp:low_search:form}
 
             <ul class="nav navbar-nav navbar-right">
@@ -37,7 +39,6 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
 
     </div>
