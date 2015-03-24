@@ -1,15 +1,105 @@
-html,body {
-  font-family: "proxima-nova",sans-serif;
+// Navbar is fixed, adjust container
+// ----------------------------------
+
+body > #wrapper {
+  margin-top: 100px;
 }
 
-// Navbar
+body > .navbar > .container-fluid {
+  margin-top: 0;
+}
+
+// Bootstrap NavBar
+// ----------------------------------
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
 .navbar-brand {
   padding: @new-navbar-padding-vertical @navbar-padding-horizontal;
 }
 
-// Lazy load
-// To prevent both placeholder and the real image showing at the same time - hide the placeholder with css.
+.navbar .container-fluid {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+// Lazy Load images
+// ----------------------------------
 .lazy {
   display: none;
 }
 
+
+// Listings styles for Packery layout
+// ----------------------------------
+.box {
+  background: @brand-white;
+  margin: 15px;
+  border-radius: 5px;
+
+  .entry-title, .entry-title a {
+    font-family: @font-family-secondary;
+    font-size: 25px;
+    margin: 0 0 40px 0;
+    text-transform: none;
+  }
+
+  .entry-title, .entry-category{
+    padding: 0 25px;
+  }
+
+  .entry-category {
+    padding-top: 25px;
+    margin: 0 5px 5px 0;
+    color: darken(@brand-white, 15%);
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .entry-content {
+    padding: 20px;
+  }
+
+  .entry-meta {
+
+    font-family: @font-family-tertiary;
+    font-weight: 300;
+    padding: 25px;
+    background: mix(@brand-primary, @brand-white, 95%);
+    color: @brand-white;
+
+    .meta-items {
+      color: @brand-white;
+    }
+  }
+
+
+  // Hover events
+  &:hover {
+    .entry-meta {
+      background: mix(@brand-primary, @brand-white, 95%);
+    }
+  }
+
+
+}
+
+
+
+// Misc stuff
+// ----------------------------------
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

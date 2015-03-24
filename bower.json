@@ -26,6 +26,8 @@
     "jquery.lazyload": "~1.9.3",
     "shufflejs": "~3.0.4",
     "font-awesome": "~4.3.0",
-    "bootstrap-social": "~4.8.0"
+    "bootstrap-social": "~4.8.0",
+    "packery": "~1.3.2",
+    "flexslider": "*"
   }
 }

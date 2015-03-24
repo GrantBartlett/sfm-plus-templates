@@ -1,6 +1,79 @@
 {embed="__includes/wrapper" body_class="home"}
 
-{exp:partials:set name="main"}
-    {!-- embed="home/home-feature" --}
-    {embed="home/home-grid"}
+{exp:partials:set name="main-escape"}
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<div class="container-fluid" style="background: #eaedef;">
+    <div id="container">
+        {exp:channel:entries channel="entry" sticky="no" dynamic="no" limit="10" category_group="2" orderby="entry_date" sort="desc"}
+        <article class="col-md-4 clearfix">
+            <div class="box">
+
+                <span class="entry-category">
+                {categories} {category_name} {/categories}
+                </span>
+
+                <h1 class="entry-title">
+                   {entry_name_{language_code}}
+                </h1>
+
+                {exp:switchee variable="{entry_type}" parse="inward"}
+
+                    {case value="video"}
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{youtube_video_link}" allowfullscreen=""></iframe>
+                    </div>
+                    {/case}
+
+                    {case value="article"}
+                    <figure class="post-thumb">
+                        <a href="#">
+                            <img src="{entry_image:packery_large_width}" class="lazy img-responsive" alt="{entry_name_{language_code}}">
+                        </a>
+                    </figure>
+                    {/case}
+
+                    {case value="lookbook"}
+                    <div class="flexslider clearfix">
+                        <ul class="slides clearfix">
+                            {entry_gallery limit="2"}
+                            <li>
+                                <figure class="post-thumb">
+                                    <a href="#">
+                                        <img src="{image_source}" class="img-responsive" alt="{entry_name_{language_code}}">
+                                    </a>
+                                </figure>
+                            </li>
+                            {/entry_gallery}
+                        </ul>
+                    </div>
+                    {/case}
+                {/exp:switchee}
+
+                <div class="entry-content">
+                    <p>{entry_description_{language_code}}</p>
+                </div>
+
+                <div class="entry-meta">
+                    <ul class="list-inline meta-items">
+                        <li data-toggle="tooltip" data-placement="top" title="{comment_total} comments">
+                            <i class="fa fa-comment-o fa-3x fa-fw"></i>
+                        </li>
+                        <li data-toggle="tooltip" data-placement="top" title="Tweet this on Twitter">
+                           <i class="fa fa-retweet fa-3x fa-fw"></i>
+                        </li>
+                        <li data-toggle="tooltip" data-placement="top" title="Share this on Facebook">
+                           <i class="fa fa-facebook-official fa-3x fa-fw"></i>
+                        </li>
+                        <li data-toggle="tooltip" data-placement="top" title="Share this on Facebook" class="pull-right">
+                           <i class="fa fa-link fa-3x fa-fw"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+        {/exp:channel:entries}
+    </div>
+</div>
 {/exp:partials:set}

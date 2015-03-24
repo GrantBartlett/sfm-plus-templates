@@ -22,11 +22,23 @@ module.exports = function (grunt) {
         'assets/vendor/modernizr/modernizr.js',
         'assets/vendor/jquery.lazyload/jquery.lazyload.min.js',
         'assets/vendor/shufflejs/dist/jquery.shuffle.min.js',
+        'assets/vendor/flexslider/jquery.flexslider-min.js',
         'assets/js/_*.js',
-        'assets/js/plugins/*.js'
+        'assets/js/plugins/*.js',
+        'assets/vendor/packery/dist/packery.pkgd.min.js'
     ];
 
     grunt.initConfig({
+        bootlint: {
+            options: {
+                relaxerror: [],
+                showallerrors: false,
+                stoponerror: true,
+                stoponwarning: false
+            },
+            files: ['test/*.html']
+        },
+
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
@@ -137,11 +149,14 @@ module.exports = function (grunt) {
                     'assets/css/main.css',
                     'assets/js/scripts.js',
                     'templates/*.php',
+                    'templates/*.html',
                     '*.php'
                 ]
             }
         }
     });
+
+    grunt.loadNpmTasks('grunt-bootlint');
 
     // Register tasks
     grunt.registerTask('default', [
@@ -151,7 +166,8 @@ module.exports = function (grunt) {
         'jshint',
         'less:dev',
         'autoprefixer:dev',
-        'concat'
+        'concat',
+        'bootlint'
     ]);
     grunt.registerTask('build', [
         'jshint',
