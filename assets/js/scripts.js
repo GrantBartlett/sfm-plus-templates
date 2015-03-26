@@ -3698,14 +3698,12 @@ window.Modernizr = (function( window, document, undefined ) {
     /**
      * Bootstrap tooltips
      */
-
     $('[data-toggle="tooltip"]').tooltip();
 
     /**
      * Load images when viewport
      * @see jquery.lazyload in vendor
      */
-
     $("img.lazy").show().lazyload({
         effect: "fadeIn"
     });
@@ -3715,33 +3713,18 @@ window.Modernizr = (function( window, document, undefined ) {
      * Load images when ready, use packery to create masonry layout
      * @type {*|jQuery}
      */
-
     var $container = $('#container').imagesLoaded(function () {
         // initialize Packery after all images have loaded
         $container.packery({
-            itemSelector: '.col-md-4'
-
+            itemSelector: '.col-md-4',
+            columnWidth: '.col-md-4'
         });
-    });
-
-
-    /**
-     * Image slider
-     * @see flexslider in vendor
-     */
-
-    $('.flexslider').flexslider({
-        animation: "slide",
-
     });
 
 
     /**
      * NavBar - fixed position on scroll
      */
-
-    // Initial nav height
-
     $(window).scroll(function () {
         var navBar = $(".navbar"),
             height = navBar.height(),
@@ -3752,7 +3735,78 @@ window.Modernizr = (function( window, document, undefined ) {
         }
     });
 
+
+    /**
+     * Resizing window
+     */
+    $(window).resize(function(){
+        $container.packery('bindResize');
+    });
+
 });;/**
+ * Image slider
+ * @see flexslider in vendor
+ */
+
+var sliders = {}; // Hold all sliders
+
+/**
+ * Flex Slider Object
+ * @param sliderID
+ * @constructor
+ */
+
+$(function(){
+    $('.flexslider').flexslider({
+        animation: 'fade',
+        touch: true,
+        prevText: '',
+        nextText: '',
+        controlNav: false,
+        smoothHeight: true
+    });
+});
+
+
+
+;/**
+ * Youtube Video API
+ * Controls all iframe embeds on page and gives them an autoplay feature
+ */
+
+var players = {}; // All players on the page
+
+function onYouTubePlayerAPIReady() {
+    $('iframe').each(function (event) {
+        var iframeID = $(this).attr('id');
+        players[iframeID] = new YT.Player(iframeID);
+    });
+}
+
+function playYouTubeVideo(iframeID) {
+    players[iframeID].playVideo();
+    players[iframeID].mute();
+}
+
+function pauseYouTubeVideo(iframeID) {
+    players[iframeID].pauseVideo();
+}
+
+
+/**
+ * Auto Play Videos
+ */
+
+$('.video-auto').hover(
+    function () {
+        var iframeID = $(this).find('iframe').attr('id');
+        playYouTubeVideo(iframeID);
+    },
+    function () {
+        var iframeID = $(this).find('iframe').attr('id');
+        pauseYouTubeVideo(iframeID);
+    }
+);;/**
  * Low search ajax
  */
 

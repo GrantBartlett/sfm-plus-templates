@@ -1,5 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+	<div class="menu-button">
+		<i class="fa fa-bars fa-3x"></i>
+	</div>
+    <div class="container">
 
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation">
@@ -10,27 +13,20 @@
             </button>
 
             <a class="navbar-brand" href="{base}">
-                <img src="/assets/images/logo.png" width="230" height="65" alt="SFM Plus" class="img-responsive" style="width:65%">
+                <img src="/assets/images/logo.png" width="230" height="65" alt="SFM Plus" class="img-responsive" style="width:80%">
             </a>
         </div>
 
-
         <div class="collapse navbar-collapse" id="main-navigation">
-
-
-            {!--
-            {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right hidden-sm" form_id="search-form" form_role="search"}
-            <div class="input-group margin-bottom-sm">
-                <input type="text" class="form-control" placeholder="{search_{language_code}}" name="keywords" id="keywords">
-                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+            {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right hidden-sm search-header" form_id="search-form" form_role="search"}
+            <div class="input-group">
+                <input type="text" class="form-control search" placeholder="{search_{language_code}}" name="keywords" id="keywords">
+                <span class="input-group-addon search-icon"><i class="fa fa-search fa-2x fa-fw"></i></span>
             </div>
             {/exp:low_search:form}
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{base}articles/category/news/">News</a></li>
-                <li><a href="{base}articles/category/fashion-beauty/">Fashion</a></li>
+            <ul class="nav navbar-nav navbar-right nav-items">
                 <li><a href="#">iStyle</a></li>
-                <li><a href="{base}articles/category/sales/">Sales</a></li>
                 <li><a href="{base}sfm-plus/">Competitions</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More
@@ -44,7 +40,6 @@
                     </ul>
                 </li>
             </ul>
-            --}
         </div>
 
     </div>

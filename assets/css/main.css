@@ -97,6 +97,10 @@ html[xmlns] .flexslider .slides {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+  -webkit-transition: property 0.2s ease-out 0;
+  -o-transition: property 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: property 0.2s ease-out 0;
 }
 .loading .flex-viewport {
   max-height: 300px;
@@ -124,6 +128,10 @@ html[xmlns] .flexslider .slides {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out ease-out 0;
+  -o-transition: 0.3s ease-in-out ease-out 0;
+  /* Opera 10.5+ */
+  transition: 0.3s ease-in-out ease-out 0;
 }
 .flex-direction-nav a:before {
   font-family: "flexslider-icon";
@@ -240,6 +248,10 @@ html[xmlns] .flexslider .slides {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+  -webkit-transition: property 0.2s ease-out 0;
+  -o-transition: property 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: property 0.2s ease-out 0;
 }
 .flex-control-thumbs img:hover {
   opacity: 1;
@@ -1377,6 +1389,10 @@ img {
   -webkit-transition: all all 0.2s ease-in-out ease;
   -o-transition: all all 0.2s ease-in-out ease;
   transition: all all 0.2s ease-in-out ease;
+  -webkit-transition: all 0.2s ease-in-out 0.2s ease-out 0;
+  -o-transition: all 0.2s ease-in-out 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: all 0.2s ease-in-out 0.2s ease-out 0;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -2797,6 +2813,10 @@ output {
   -webkit-transition: all border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s ease;
   -o-transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease;
   transition: all border-color ease-in-out .15s, box-shadow ease-in-out .15s ease;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s 0.2s ease-out 0;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s 0.2s ease-out 0;
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -3645,6 +3665,10 @@ input[type="button"].btn-block {
   -webkit-transition: all opacity 0.15s linear ease;
   -o-transition: all opacity 0.15s linear ease;
   transition: all opacity 0.15s linear ease;
+  -webkit-transition: opacity 0.15s linear 0.2s ease-out 0;
+  -o-transition: opacity 0.15s linear 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: opacity 0.15s linear 0.2s ease-out 0;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
@@ -5191,6 +5215,10 @@ a.badge:focus {
   -webkit-transition: all border 0.2s ease-in-out ease;
   -o-transition: all border 0.2s ease-in-out ease;
   transition: all border 0.2s ease-in-out ease;
+  -webkit-transition: border 0.2s ease-in-out 0.2s ease-out 0;
+  -o-transition: border 0.2s ease-in-out 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: border 0.2s ease-in-out 0.2s ease-out 0;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
@@ -5337,6 +5365,10 @@ a.thumbnail.active {
   -webkit-transition: all width 0.6s ease ease;
   -o-transition: all width 0.6s ease ease;
   transition: all width 0.6s ease ease;
+  -webkit-transition: width 0.6s ease 0.2s ease-out 0;
+  -o-transition: width 0.6s ease 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: width 0.6s ease 0.2s ease-out 0;
   -webkit-transition: width 0.6s ease;
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
@@ -6391,6 +6423,10 @@ button.close {
   -webkit-transition: all 0.6s ease-in-out left ease;
   -o-transition: all 0.6s ease-in-out left ease;
   transition: all 0.6s ease-in-out left ease;
+  -webkit-transition: 0.6s ease-in-out left 0.2s ease-out 0;
+  -o-transition: 0.6s ease-in-out left 0.2s ease-out 0;
+  /* Opera 10.5+ */
+  transition: 0.6s ease-in-out left 0.2s ease-out 0;
   -webkit-transition: 0.6s ease-in-out left;
   -o-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
@@ -7922,11 +7958,53 @@ fieldset[disabled] .btn-yahoo.active {
   padding: 0;
   margin: 1.5em 0;
 }
+.search-header {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.search-header .search {
+  background: #f5f5f6;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: 64px;
+  border: none;
+  border-radius: 0;
+  font-size: 18px;
+}
+.search-header .search-icon {
+  background: #f5f5f6;
+  color: #5c5168;
+  border: none;
+  border-radius: 0;
+}
+.flexslider {
+  margin-bottom: 0;
+}
+.flex-direction-nav a:before {
+  font-size: 35px;
+}
+.flex-direction-nav a.flex-prev:before {
+  font-family: 'FontAwesome';
+  content: "\f053";
+}
+.flex-direction-nav a.flex-next:before {
+  font-family: 'FontAwesome';
+  content: "\f054";
+}
 body > #wrapper {
   margin-top: 100px;
 }
 body > .navbar > .container-fluid {
   margin-top: 0;
+}
+.home {
+  background: #ecebed;
+}
+.menu-button {
+  color: #3f324d;
+  position: absolute;
+  top: 30px;
+  right: 2%;
 }
 .navbar {
   padding-top: 20px;
@@ -7940,6 +8018,12 @@ body > .navbar > .container-fluid {
   padding-left: 45px;
   padding-right: 45px;
 }
+.nav-items {
+  font-size: 18px;
+}
+.nav-items li {
+  margin: 0 5px;
+}
 .lazy {
   display: none;
 }
@@ -7948,10 +8032,21 @@ body > .navbar > .container-fluid {
   margin: 15px;
   border-radius: 5px;
 }
+.box img {
+  -webkit-transition: all 0.6s ease 0;
+  -o-transition: all 0.6s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.6s ease 0;
+  filter: saturate(50%);
+  -webkit-filter: saturate(50%);
+  -moz-filter: saturate(50%);
+  -o-filter: saturate(50%);
+  -ms-filter: saturate(50%);
+}
 .box .entry-title,
 .box .entry-title a {
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
+  font-size: 2em;
   margin: 0 0 40px 0;
   text-transform: none;
 }
@@ -7971,17 +8066,42 @@ body > .navbar > .container-fluid {
   padding: 20px;
 }
 .box .entry-meta {
+  filter: saturate(15%);
+  -webkit-filter: saturate(15%);
+  -moz-filter: saturate(15%);
+  -o-filter: saturate(15%);
+  -ms-filter: saturate(15%);
+  -webkit-transition: all 0.6s ease 0;
+  -o-transition: all 0.6s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.6s ease 0;
+  background: #e6e4e8;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   padding: 25px;
-  background: #493c56;
-  color: #ffffff;
+  color: #6f657a;
 }
 .box .entry-meta .meta-items {
-  color: #ffffff;
+  margin-bottom: 0;
+}
+.box:hover {
+  color: #3f324d;
+}
+.box:hover img {
+  filter: saturate(120%);
+  -webkit-filter: saturate(120%);
+  -moz-filter: saturate(120%);
+  -o-filter: saturate(120%);
+  -ms-filter: saturate(120%);
 }
 .box:hover .entry-meta {
-  background: #493c56;
+  filter: saturate(85%);
+  -webkit-filter: saturate(85%);
+  -moz-filter: saturate(85%);
+  -o-filter: saturate(85%);
+  -ms-filter: saturate(85%);
+  background: #3f324d;
+  color: #e2e0e4;
 }
 *,
 *:before,

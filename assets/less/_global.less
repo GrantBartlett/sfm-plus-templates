@@ -9,8 +9,23 @@ body > .navbar > .container-fluid {
   margin-top: 0;
 }
 
+// Global
+// ----------------------------------
+
+.home {
+  background: mix(@brand-white, @brand-primary, 90%);
+}
+
 // Bootstrap NavBar
 // ----------------------------------
+
+.menu-button {
+  color: @brand-primary;
+  position: absolute;
+  top: 30px;
+  right: 2%;
+}
+
 .navbar {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -26,6 +41,13 @@ body > .navbar > .container-fluid {
   padding-right: 45px;
 }
 
+.nav-items {
+  font-size: 18px;
+  li {
+    margin: 0 5px;
+  }
+}
+
 // Lazy Load images
 // ----------------------------------
 .lazy {
@@ -36,13 +58,19 @@ body > .navbar > .container-fluid {
 // Listings styles for Packery layout
 // ----------------------------------
 .box {
+
+  img {
+    .transition ( all, 0.6s, ease);
+    .saturate(50%);
+  }
+
   background: @brand-white;
   margin: 15px;
   border-radius: 5px;
 
   .entry-title, .entry-title a {
     font-family: @font-family-secondary;
-    font-size: 25px;
+    font-size: 2em;
     margin: 0 0 40px 0;
     text-transform: none;
   }
@@ -65,26 +93,31 @@ body > .navbar > .container-fluid {
   }
 
   .entry-meta {
-
+    .saturate(15%);
+    .transition ( all, 0.6s, ease);
+    background: mix(@brand-primary, @brand-white, 13%);
     font-family: @font-family-tertiary;
     font-weight: 300;
     padding: 25px;
-    background: mix(@brand-primary, @brand-white, 95%);
-    color: @brand-white;
+    color: mix(@brand-primary, @brand-white, 75%);
 
     .meta-items {
-      color: @brand-white;
+      margin-bottom: 0;
     }
   }
-
 
   // Hover events
   &:hover {
+    color: @brand-primary;
+    img {
+      .saturate(120%);
+    }
     .entry-meta {
-      background: mix(@brand-primary, @brand-white, 95%);
+      .saturate(85%);
+      background: mix(@brand-primary, @brand-white, 100%);
+      color: mix(@brand-primary, @brand-white, 15%);
     }
   }
-
 
 }
 
