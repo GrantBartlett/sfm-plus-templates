@@ -5,5 +5,4 @@ themes/
 *.php
 *.ini
 .idea/
-assets/vendor/
 node_modules/

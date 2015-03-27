@@ -28,6 +28,7 @@
     "font-awesome": "~4.3.0",
     "bootstrap-social": "~4.8.0",
     "packery": "~1.3.2",
-    "flexslider": "*"
+    "flexslider": "*",
+    "slick.js": "~1.4.1"
   }
 }

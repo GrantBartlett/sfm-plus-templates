@@ -12,14 +12,16 @@ var sliders = {}; // Hold all sliders
  */
 
 $(function(){
-    $('.flexslider').flexslider({
-        animation: 'fade',
-        touch: true,
-        prevText: '',
-        nextText: '',
-        controlNav: false,
-        smoothHeight: true
-    });
+    $('.slides').slick();
+
+    //$('.flexslider').flexslider({
+    //    animation: 'fade',
+    //    touch: true,
+    //    prevText: '',
+    //    nextText: '',
+    //    controlNav: false,
+    //    smoothHeight: true
+    //});
 });
 
 

@@ -25,7 +25,8 @@ module.exports = function (grunt) {
         'assets/vendor/flexslider/jquery.flexslider-min.js',
         'assets/js/_*.js',
         'assets/js/plugins/*.js',
-        'assets/vendor/packery/dist/packery.pkgd.min.js'
+        'assets/vendor/packery/dist/packery.pkgd.min.js',
+        'assets/vendor/slick.js/slick/slick.min.js'
     ];
 
     grunt.initConfig({

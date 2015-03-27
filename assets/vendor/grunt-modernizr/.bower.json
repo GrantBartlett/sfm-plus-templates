@@ -1,0 +1,14 @@
+{
+  "name": "grunt-modernizr",
+  "homepage": "https://github.com/Modernizr/grunt-modernizr",
+  "version": "0.6.0",
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.6.0",
+    "commit": "dc9e2ca373a31dce802379093d21d283d051dc7a"
+  },
+  "_source": "git://github.com/Modernizr/grunt-modernizr.git",
+  "_target": "~0.6.0",
+  "_originalSource": "grunt-modernizr"
+}
