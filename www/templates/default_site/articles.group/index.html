@@ -1,0 +1,40 @@
+{embed="__includes/wrapper" body_class="articles"}
+
+{exp:partials:set name="main"}
+<div id="content">
+
+    {!-- catch uri without further segments --}
+    {if segment_2 == ""}
+
+        {embed="articles/featured-articles" status="{entry_status_lng}"}
+
+        {embed="articles/editors-picks" status="{entry_status_lng}"}
+
+        {embed="articles/the-latest" limit="12" category_group="6" offset="4" status="{entry_status_lng}"}
+
+        {embed="articles/list-of-threes" status="{entry_status_lng}"}
+
+    {if:else}
+
+        {exp:switchee variable = "{segment_2}" parse="inward"}
+            {case value="category" default="Yes"}
+                <header class="entry-header">
+                    <h2>
+                        {exp:channel:categories category_group="6" show="{last_segment_category_id}" style="linear"}{category_name_{language_code}}{/exp:channel:categories}
+                    </h2>
+
+                    <p>{exp:channel:categories category_group="6" show="{last_segment_category_id}" style="linear"} {category_description_{language_code}} {/exp:channel:categories}</p>
+                </header>
+                <hr>
+
+                {embed="articles/featured-articles" category="{last_segment_category_id}" status="{entry_status_lng}"}
+
+                {embed="articles/editors-picks" status="{entry_status_lng}"}
+
+                {embed="articles/the-latest" limit="12" category_group="6" offset="4" status="{entry_status_lng}"}
+            {/case}
+        {/exp:switchee}
+
+    {/if}
+</div>
+{/exp:partials:set}

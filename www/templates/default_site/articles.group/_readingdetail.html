@@ -1,0 +1,57 @@
+{exp:partials:set name="page_title"}Articles{/exp:partials:set}
+
+{exp:channel:entries channel="entry" url_title="{last_segment}" track_views="one" status="{embed:status}" disable="member_data|pagination"}
+    {exp:partials:set name="meta_og"}
+        <meta property="og:title" content="{entry_name_{language_code}}" />
+        <meta property="og:description" content="{entry_excerpt_{language_code}}" />
+    {/exp:partials:set}
+    {exp:partials:set name="meta_image"}<meta property="og:image" content="{entry_image}" />{/exp:partials:set}
+{/exp:channel:entries}
+
+<div id="content">
+    <section class="content-section detail">
+        {exp:channel:entries channel="entry" url_title="{segment_3}" status="{embed:status}"}
+
+            <article id="post-id{entry_id}" {entry_dir_lng}>
+                <header class="entry-header">
+                    <h2>
+                       {entry_name_{language_code}}
+                        <span class="label label-default">{categories limit="1" show_group="6"}{category_name_{language_code}}{/categories}</span>
+                    </h2>
+                    <p class="lead">Published {entry_date:relative about="nearly"}</p>
+                    <hr>
+                </header>
+
+                <div class="entry-content">
+                {if show_featured_image == "y"}
+                    {entry_image}
+                    <figure class="entry-thumb pull-right">
+                        <img src="{url:article_detail}" class="thumbnail img-responsive" alt="{entry_name_{language_code}}">
+                        <figcaption>
+                            <small class="entry-thumb-credit">{credit}</small>
+                            <p class="image-description">{entry_image_description}</p>
+                        </figcaption>
+                    </figure>
+                    {/entry_image}
+                {/if}
+                {entry_content_{language_code}}
+                </div>
+            </article>
+
+            {if "{categories show='29'}{category_id}{/categories}" == "29"}
+            <article class="clear">
+                <h1 class="section-header">{pictures_{language_code}}</h1>
+                {lookbook}
+            </article>
+            {/if}
+
+            {if "{categories show='38'}{category_id}{/categories}" == "38"}
+            <article class="clear">
+                {fashion_finder}
+            </article>
+            {/if}
+
+        {embed="articles/you-might-also-like" category="{categories show_group="6" backspace="1"}{category_id}|{/categories}" status="{entry_status_lng}"}
+        {/exp:channel:entries}
+    </section>
+</div>

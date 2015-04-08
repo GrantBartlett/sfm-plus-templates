@@ -1,0 +1,10 @@
+{embed="__includes/wrapper" body_class="articles reading" nav_active=""}
+
+{exp:partials:set name="main"}
+    {embed="articles/_readingdetail" status="{entry_status_lng}"}
+{/exp:partials:set}
+
+{exp:partials:set name="aside-right"}
+    {embed="_aside/articles" article-list-limit="12" status="{embed:status}"}
+{/exp:partials:set}
+

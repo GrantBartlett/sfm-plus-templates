@@ -1,0 +1,18 @@
+<section class="sidebar-1col mt-20">
+    <header>
+        <h1>{more_on_saudi_fashion_{language_code}}</h1>
+    </header>
+
+    {exp:channel:entries channel="entry" category="5" cache="yes" refresh="10" limit="{embed:article-list-limit}" dynamic="no" sticky="no" url_title="not {last_segment}" status="{embed:status}" limit="8"}
+    <div class="article-wrapper" {entry_dir_lng}>
+        <a href="{base}articles/reading/{url_title}/">
+            <img src="/images/placeholders/140x105.gif" data-src="{entry_image}" style="width:100%;">
+        </a>
+        <div class="article-content">
+            <h6 class="m-bot-0 m-top-0">
+                <a href="{base}articles/reading/{url_title}/"> {entry_name_{language_code}}</a>
+            </h6>
+        </div>
+    </div>
+    {/exp:channel:entries}
+</section>

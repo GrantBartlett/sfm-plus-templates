@@ -1,0 +1,52 @@
+// Import dependencies
+@import "_bootstrap";   // Bootstrap core
+@import "_libraries";   // Libraries to import
+
+// Begin customizing
+@import "_variables";   // Less variables, including paths
+@import "_mixins";      // Less mixins
+@import "_global";
+
+
+// Begin Media Queries, remember Bootstrap is responsive first!
+// Only use the below to style NON mobile.
+
+
+// Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {
+
+  // Trending icon
+  .trending {
+    .trending-tag {
+      font-size: 12px;
+    }
+  }
+
+}
+
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+
+  // Trending icon
+  .trending {
+    .trending-tag {
+      font-size: 13px;
+    }
+  }
+
+}
+
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+
+  // Trending icon
+  .trending {
+    .trending-tag {
+      font-size: 14px;
+    }
+  }
+
+}
+

@@ -1,0 +1,26 @@
+{exp:channel:entries channel="entry" url_title="{segment_3}"}
+{if "{related_articles}{related_articles:title}{/related_articles}" != ''}
+<section class="content-section  l-70-30cr mb-20">
+    <h1 class="section-header">{related_{language_code}}</h1>
+    {related_articles limit="1"}
+        <article class="c-1 main" {entry_dir_lng}>
+        <div class="mb-20">
+            <a href="{base}articles/reading/{related_articles:url_title}/" class="image-link"><img src="{related_articles:entry_image:3_col_large}" style="width: 100%"></a>
+        </div>
+        <h1><a href="{base}articles/reading/{related_articles:url_title}/">{related_articles:entry_name_{language_code}}... {read_more}</a></h1>
+        </article>
+    {/related_articles}
+
+<ul class="vertical-article-list c-2" style="list-style-type: circle !important; padding-left: 20px !important">
+    {related_articles offset="1"}
+    <li class="{switch='||||tp-show hr-show|tp-show hr-show|d-show l-show hr-show'}" {entry_dir_lng}>
+        <h2>
+            <a href="{base}articles/reading/{related_articles:url_title}/">{related_articles:entry_name_{language_code}}</a>
+        </h2>
+    </li>
+    {/related_articles}
+</ul>
+</section>
+<hr class="clear">
+{/if}
+{/exp:channel:entries}

@@ -1,6 +1,9 @@
 ### Instructions
-Install dev dependencies <br>
-<code>sudo npm install</code>
+Install dev dependencies
+`sudo npm install`
+
+Running Grunt for first time
+`grunt init`
 
 ### Updating
 Update dependencies <br>

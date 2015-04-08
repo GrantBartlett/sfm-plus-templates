@@ -1,180 +1,111 @@
-'use strict';
 module.exports = function (grunt) {
-    // Load all tasks
-    require('load-grunt-tasks')(grunt);
-    // Show elapsed time
-    require('time-grunt')(grunt);
 
-    var jsFileList = [
-        'assets/vendor/bootstrap/js/transition.js',
-        'assets/vendor/bootstrap/js/alert.js',
-        'assets/vendor/bootstrap/js/button.js',
-        'assets/vendor/bootstrap/js/carousel.js',
-        'assets/vendor/bootstrap/js/collapse.js',
-        'assets/vendor/bootstrap/js/dropdown.js',
-        'assets/vendor/bootstrap/js/modal.js',
-        'assets/vendor/bootstrap/js/tooltip.js',
-        'assets/vendor/bootstrap/js/popover.js',
-        'assets/vendor/bootstrap/js/scrollspy.js',
-        'assets/vendor/bootstrap/js/tab.js',
-        'assets/vendor/bootstrap/js/affix.js',
-        'assets/vendor/bootstrap/js/affix.js',
-        'assets/vendor/modernizr/modernizr.js',
-        'assets/vendor/jquery.lazyload/jquery.lazyload.min.js',
-        'assets/vendor/shufflejs/dist/jquery.shuffle.min.js',
-        'assets/vendor/flexslider/jquery.flexslider-min.js',
-        'assets/js/_*.js',
-        'assets/js/plugins/*.js',
-        'assets/vendor/packery/dist/packery.pkgd.min.js',
-        'assets/vendor/slick.js/slick/slick.min.js'
+    var js_src_files = [
+        'node_modules/jquery/dist/cdn/*.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'node_modules/jquery-lazyload/jquery.lazyload.js',
+        'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
+        'node_modules/packery/dist/packery.pkgd.min.js',
+        'node_modules/slick-carousel/slick/slick.min.js',
+        'src/**/**/.js',
+        'src/**/*.js'
     ];
 
+    // Project configuration.
     grunt.initConfig({
-        bootlint: {
-            options: {
-                relaxerror: [],
-                showallerrors: false,
-                stoponerror: true,
-                stoponwarning: false
-            },
-            files: ['test/*.html']
+
+        pkg: grunt.file.readJSON('package.json'),
+
+        copy: {
+            main: {
+                files: [
+                    // includes files within path
+                    {
+                        expand: true, cwd: 'node_modules/font-awesome/', src: ['fonts/*'], dest: 'www/assets/', filter: 'isFile'
+                    }
+                ]
+            }
         },
 
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            all: [
-                'Gruntfile.js',
-                'assets/js/_*.js',
-                '!assets/js/scripts.js',
-                '!assets/**/*.min.*'
-            ]
-        },
-        less: {
-            dev: {
-                files: {
-                    'assets/css/main.css': [
-                        'assets/less/main.less'
-                    ]
-                },
-                options: {
-                    compress: false,
-                    // LESS source map
-                    // To enable, set sourceMap to true and update sourceMapRootpath based on your install
-                    sourceMap: true,
-                    sourceMapFilename: 'assets/css/main.css.map',
-                    sourceMapRootpath: 'assets/'
-                }
-            },
-            build: {
-                files: {
-                    'assets/css/main.min.css': [
-                        'assets/less/main.less'
-                    ]
-                },
-                options: {
-                    compress: true
-                }
-            }
-        },
         concat: {
             options: {
-                separator: ';'
+                stripBanners: true,
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
             dist: {
-                src: [jsFileList],
-                dest: 'assets/js/scripts.js'
+                src: js_src_files,
+                dest: 'www/assets/js/scripts.js'
             }
         },
-        uglify: {
-            dist: {
-                files: {
-                    'assets/js/scripts.min.js': [jsFileList]
-                }
-            }
-        },
-        autoprefixer: {
-            options: {
-                browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4', 'opera 12']
-            },
-            dev: {
+
+        less: {
+            development: {
                 options: {
-                    map: {
-                        prev: 'assets/css/'
-                    }
+                    paths: ["src/less/**"]
                 },
-                src: 'assets/css/main.css'
-            },
-            build: {
-                src: 'assets/css/main.min.css'
-            }
-        },
-        modernizr: {
-            build: {
-                devFile: 'assets/vendor/modernizr/modernizr.js',
-                outputFile: 'assets/js/vendor/modernizr.min.js',
                 files: {
-                    'src': [
-                        ['assets/js/scripts.min.js'],
-                        ['assets/css/main.min.css']
+                    "www/assets/css/main.css": "src/less/main.less"
+                }
+            },
+            production: {
+                options: {
+                    paths: ["assets/css"],
+                    plugins: [
+                        new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
+                        new (require('less-plugin-clean-css'))({advanced: true})
                     ]
                 },
-                uglify: true,
-                parseFiles: true
+                files: {
+                    "www/assets/css/main.min.css": "src/less/main.less"
+                }
             }
         },
 
         watch: {
-            less: {
-                files: [
-                    'assets/less/*.less',
-                    'assets/less/**/*.less'
-                ],
-                tasks: ['less:dev', 'autoprefixer:dev']
+            config: {
+                files: ['package.json', 'gruntfile.js'],
+                tasks: ['exit']
             },
-            js: {
-                files: [
-                    jsFileList,
-                    '<%= jshint.all %>'
-                ],
-                tasks: ['jshint', 'concat']
+            options: {
+                dateFormat: function (time) {
+                    grunt.log.writeln('Finished watching in ' + time + ' ms at' + (new Date()).toString());
+                }
+            },
+            less: {
+                // We watch and compile sass files as normal but don't live reload here
+                files: ['src/less/*.less'],
+                tasks: ['less']
+            },
+            scripts: {
+                files: '**/*.js',
+                tasks: ['concat'],
+                options: {
+                    interrupt: true
+                }
             },
             livereload: {
-                // Browser live reloading
-                // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
-                options: {
-                    livereload: false
-                },
-                files: [
-                    'assets/css/main.css',
-                    'assets/js/scripts.js',
-                    'templates/*.php',
-                    'templates/*.html',
-                    '*.php'
-                ]
+                // Here we watch the files the sass task will compile to
+                // These files are sent to the live reload server after sass compiles to them
+                options: { livereload: true },
+                files: ['src/**/*']
             }
         }
+
     });
 
-    grunt.loadNpmTasks('grunt-bootlint');
+    //grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    // Register tasks
-    grunt.registerTask('default', [
-        'dev'
-    ]);
-    grunt.registerTask('dev', [
-        'jshint',
-        'less:dev',
-        'autoprefixer:dev',
-        'concat',
-        'bootlint'
-    ]);
-    grunt.registerTask('build', [
-        'jshint',
-        'less:build',
-        'autoprefixer:build',
-        'uglify',
-        'modernizr'
-    ]);
+
+    // Default task(s).
+    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('init', ['copy', 'watch']);
+
+    grunt.registerTask('exit', 'Just exits.', function() {
+        process.exit(0);
+    });
 };
