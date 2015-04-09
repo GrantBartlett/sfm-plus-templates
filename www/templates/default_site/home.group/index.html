@@ -5,13 +5,17 @@
     <div id="container">
 
         <ul class="list-unstyled">
-	    {exp:channel:entries channel="entry" sticky="no" dynamic="no" limit="50" category_group="2" orderby="entry_date" sort="desc"}
+	    {exp:channel:entries channel="Content"}
 	    <li class="col-md-4">
         <article class="clearfix" style="margin-bottom: 30px;">
-            <div class="box {entry_type}-auto {if entry_trending == 'yes'}trending{/if}">
+            <div class="box play-{categories}{category_name}{/categories} {if entry_trending == 'yes'}trending{/if}">
+
+
 
                 <span class="entry-category">{categories} {category_name} {/categories}</span>
-                <h1 class="entry-title">{entry_name_{language_code}}</h1>
+	            <h1 class="entry-title"><a href="{base}{categories}{category_name}{/categories}/{url_title}">{entry_title_{language_code}}</a></h1>
+
+
 
 	            {if entry_trending == "yes"}
 	            <div class="trending-tag text-uppercase">
@@ -23,50 +27,42 @@
 	            </div>
 	            {/if}
 
-                {exp:switchee variable="{entry_type}" parse="inward"}
+                {exp:switchee variable="{categories}{category_name}{/categories}" parse="inward"}
                     {case value="video"}
 		            <div class="video">
 			            <div class="embed-responsive embed-responsive-16by9">
-				            <iframe id="yt_{entry_id}" class="embed-responsive-item" src="{youtube_video_link}?showinfo=0&wmode=opaque&enablejsapi=1" frameborder="0"></iframe>
+				            <iframe id="yt_{entry_id}" class="embed-responsive-item" src="{video}?showinfo=0&wmode=opaque&enablejsapi=1" frameborder="0"></iframe>
 			            </div>
 		            </div>
                     {/case}
-
-                    {case value="article"}
-                    <figure class="post-thumb">
-                        <a href="{base}articles/reading/{url_title}">
-                            <img src="{entry_image:packery_large_width}" class="img-responsive" alt="{entry_name_{language_code}}">
-                        </a>
-                    </figure>
-                    {/case}
-
-                    {case value="lookbook"}
-                    <div id="fs_{entry_id}" class="flexslider">
-                        <ul class="slides">
-                            {entry_gallery limit="2"}
-                            <li>
-                                <figure class="post-thumb">
-                                    <a href="{base}fashion-fix/viewing/{url_title}">
-                                        <img src="{image_source}" class="img-responsive" alt="{entry_name_{language_code}}">
-                                    </a>
-                                </figure>
-                            </li>
-                            {/entry_gallery}
-                        </ul>
-                    </div>
-                    {/case}
                 {/exp:switchee}
 
-	            {if entry_description}
+	            <ul class="slick-slides">
+		            {images limit="3"}
+		            <li>
+			            <figure class="post-thumb">
+				            <a href="{base}{categories}{category_name}{/categories}/{url_title}">
+					            <img src="{images:image}" class="img-responsive" alt="{entry_name_{language_code}}">
+				            </a>
+			            </figure>
+		            </li>
+		            {/images}
+	            </ul>
+
+	            {if entry_body_{language_code}}
                 <div class="entry-content">
-                    <p>{entry_description_{language_code}}</p>
+                    <p>{entry_body_{language_code}}</p>
                 </div>
 	            {/if}
+
+
 
                 <div class="entry-meta clearfix">
                     <ul class="list-inline meta-items">
                         <li data-toggle="tooltip" data-placement="top" title="{comment_total} comments">
-                            <i class="fa fa-comment-o fa-2x fa-fw"></i>
+	                        <a href="{base}{categories}{category_name}{/categories}/{url_title}/#comments">
+                                <i class="fa fa-comment-o fa-2x fa-fw"></i>
+	                        </a>
                         </li>
                         <li data-toggle="tooltip" data-placement="top" title="Tweet this on Twitter">
                            <i class="fa fa-retweet fa-2x fa-fw"></i>
@@ -74,11 +70,16 @@
                         <li data-toggle="tooltip" data-placement="top" title="Share this on Facebook">
                            <i class="fa fa-facebook-official fa-2x fa-fw"></i>
                         </li>
-                        <li data-toggle="tooltip" data-placement="top" title="A link to this" class="pull-right">
-                           <i class="fa fa-link fa-2x fa-fw"></i>
+                        <li data-toggle="tooltip" data-placement="top" title="{entry_title_{language_code}}" class="pull-right">
+	                        <a href="{base}{categories}{category_name}{/categories}/{url_title}">
+                                <i class="fa fa-link fa-2x fa-fw"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
+
+
+
             </div>
         </article>
 	    </li>

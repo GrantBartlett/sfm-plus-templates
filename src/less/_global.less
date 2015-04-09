@@ -21,7 +21,6 @@ body > .navbar > .container-fluid {
 
 
 
-
 // Bootstrap NavBar
 // ----------------------------------
 
@@ -81,7 +80,6 @@ body > .navbar > .container-fluid {
 
   .entry-title, .entry-title a {
     font-family: @font-family-secondary;
-    font-size: 2em;
     margin: 0 0 40px 0;
     text-transform: none;
   }
@@ -105,7 +103,7 @@ body > .navbar > .container-fluid {
 
   .entry-meta {
     .saturate(15%);
-    .transition ( all, 0.6s, ease);
+    .transition ( all, 0.6s, ease);  a { .transition ( all, 0.6s, ease); }
     font-family: @font-family-tertiary;
     font-weight: 300;
     padding: 25px;
@@ -131,6 +129,9 @@ body > .navbar > .container-fluid {
       .saturate(85%);
       background: mix(@brand-primary, @brand-white, 100%);
       color: mix(@brand-primary, @brand-white, 15%);
+      a {
+        color: mix(@brand-primary, @brand-white, 15%);
+      }
     }
   }
 
@@ -167,7 +168,7 @@ body > .navbar > .container-fluid {
 
 
 
-// Slider
+// Sliders
 // -----------------------------------
 .flex-direction-nav a:before {
   font-size:30px;
@@ -176,6 +177,18 @@ body > .navbar > .container-fluid {
 .flexslider {
   margin-bottom: 0;
   border: none;
+}
+
+// Slick Slider
+.slick-slides {
+  opacity: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-initialized {
+  opacity: 1!important;
 }
 
 // Articles

@@ -22,6 +22,9 @@ module.exports = function (grunt) {
                     // includes files within path
                     {
                         expand: true, cwd: 'node_modules/font-awesome/', src: ['fonts/*'], dest: 'www/assets/', filter: 'isFile'
+                    },
+                    {
+                        expand: true, cwd: 'node_modules/slick-carousel/slick', src: ['fonts/*'], dest: 'www/assets/', filter: 'isFile'
                     }
                 ]
             }

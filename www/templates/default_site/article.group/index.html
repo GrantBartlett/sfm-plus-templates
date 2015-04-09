@@ -1,0 +1,33 @@
+{embed="__includes/wrapper" body_class="sfm-plus"}
+{exp:partials:set name="main"}
+    <div class="row">
+        <div class="col-md-12">
+	    {exp:channel:entries channel="Content" url_title="{last_segment}"}
+
+	        <h3 class="text-uppercase">{categories}{category_name}{/categories} Detail</h3>
+
+		    <hr>
+			<h4>Meta</h4>
+
+	        Title:      <b>{entry_title_{language_code}}</b><br>
+		    Date:       <b>{entry_date}</b><br>
+			Comments:   <b>{comment_total}</b><br>
+
+	        <hr>
+			<h4>Body</h4>
+
+	        Content:    <b>{entry_body_{language_code}}</b><br>
+	        Image(s):      <b>{images}<pre>{images:image}</pre>{/images}</b><br>
+
+	        <hr>
+	        <h4>Comments</h4>
+
+	        {exp:comment:entries sort="asc" limit="20"}
+		        {comment}
+		        <p>By {name} on {comment_date format="%Y %m %d"}</p>
+			{/exp:comment:entries}
+
+        {/exp:channel:entries}
+        </div>
+    </div>
+{/exp:partials:set}

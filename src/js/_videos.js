@@ -26,7 +26,7 @@ function pauseYouTubeVideo(iframeID) {
  * Auto Play Videos
  */
 
-$('.video-auto').hover(
+$('.play-video').hover(
     function () {
         var iframeID = $(this).find('iframe').attr('id');
         playYouTubeVideo(iframeID);

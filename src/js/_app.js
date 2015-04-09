@@ -19,14 +19,19 @@ $(function() {
      * Load images when ready, use packery to create masonry layout
      * @type {*|jQuery}
      */
+
+    $('.slick-slides').slick();
     var $container = $('#container').imagesLoaded(function () {
         // initialize Packery after all images have loaded
+
 
         $container.packery({
             itemSelector: '.col-md-4',
             columnWidth: '.col-md-4'
         });
+
     });
+
 /*
     $('.flexslider').flexslider({
         animation: 'slide',
@@ -67,7 +72,6 @@ $(function() {
      * Resizing window
      */
     $(window).resize(function(){
-        $container.packery('bindResize');
+        $('.slick-slides').slick();
     });
-
 });
