@@ -7,6 +7,11 @@ $(function(){
 
 var players = {}; // All players on the page
 
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
 function onYouTubePlayerAPIReady() {
     $('iframe').each(function (event) {
         var iframeID = $(this).attr('id');
