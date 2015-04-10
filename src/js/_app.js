@@ -24,24 +24,12 @@ $(function() {
     var $container = $('#container').imagesLoaded(function () {
         // initialize Packery after all images have loaded
 
-
         $container.packery({
             itemSelector: '.col-md-4',
             columnWidth: '.col-md-4'
         });
 
     });
-
-/*
-    $('.flexslider').flexslider({
-        animation: 'slide',
-        touch: true,
-        prevText: '',
-        nextText: '',
-        controlNav: false,
-        smoothHeight: true
-    });
-*/
 
     /**
      * NavBar - fixed position on scroll
@@ -51,8 +39,10 @@ $(function() {
             height = navBar.height(),
             scrollTop = $(window).scrollTop();
 
-        if ( scrollTop > height * 2) {
-            navBar.addClass('navbar-fixed-top');
+        if ( scrollTop > 2) {
+            navBar.addClass('reduce');
+        }else if( scrollTop < 2){
+            navBar.removeClass('reduce');
         }
     });
 
@@ -64,7 +54,7 @@ $(function() {
     $(mainMenu).click('on', function () {
         // Do stuff to show main menu
 
-        alert("Hey Grant");
+        alert("Not yet available");
 
     });
 

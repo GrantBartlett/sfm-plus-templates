@@ -8,7 +8,7 @@
 	    {exp:channel:entries channel="Content"}
 	    <li class="col-md-4">
         <article class="clearfix" style="margin-bottom: 30px;">
-            <div class="box play-{categories}{category_name}{/categories} {if entry_trending == 'yes'}trending{/if}">
+            <div class="box play-{categories}{category_name}{/categories} {if entry_trending == 'yes'}trending{/if}" data-src="{video}">
 
 
 
@@ -17,7 +17,7 @@
 
 
 
-	            {if entry_trending == "yes"}
+	            {if trending}
 	            <div class="trending-tag text-uppercase">
 		            <span class="fa-stack fa-md">
 					  <i class="fa fa-circle-o-notch fa-stack-2x"></i>
@@ -30,8 +30,8 @@
                 {exp:switchee variable="{categories}{category_name}{/categories}" parse="inward"}
                     {case value="video"}
 		            <div class="video">
-			            <div class="embed-responsive embed-responsive-16by9">
-				            <iframe id="yt_{entry_id}" class="embed-responsive-item" src="{video}?showinfo=0&wmode=opaque&enablejsapi=1" frameborder="0"></iframe>
+			            <div class="embed-responsive embed-responsive-16by9" >
+				            <iframe id="yt_{entry_id}" class="embed-responsive-item" src="https://www.youtube.com/embed/{video}?showinfo=0&wmode=opaque&enablejsapi=1" frameborder="0"></iframe>
 			            </div>
 		            </div>
                     {/case}
@@ -64,12 +64,18 @@
                                 <i class="fa fa-comment-o fa-2x fa-fw"></i>
 	                        </a>
                         </li>
-                        <li data-toggle="tooltip" data-placement="top" title="Tweet this on Twitter">
-                           <i class="fa fa-retweet fa-2x fa-fw"></i>
-                        </li>
-                        <li data-toggle="tooltip" data-placement="top" title="Share this on Facebook">
-                           <i class="fa fa-facebook-official fa-2x fa-fw"></i>
-                        </li>
+
+	                    <li data-toggle="tooltip" data-placement="top" title="Tweet this on Twitter">
+<!--		                    <a href="#" class="twitter-share"> <i class="fa fa-retweet fa-2x fa-fw"></i> </a>-->
+
+		                    <a href="//twitter.com/intent/tweet?text={entry_title_{language_code}} {base}{categories}{category_name}{/categories}/{url_title}&amp;hashtags=SFM" target="_blank">
+			                    <i class="fa fa-retweet fa-2x fa-fw"></i></a>
+	                    </li>
+
+	                    <li data-toggle="tooltip" data-placement="top" title="Share this on Facebook">
+		                    <a href="#" class="facebook-share"> <i class="fa fa-facebook-official fa-2x fa-fw"></i> </a>
+	                    </li>
+
                         <li data-toggle="tooltip" data-placement="top" title="{entry_title_{language_code}}" class="pull-right">
 	                        <a href="{base}{categories}{category_name}{/categories}/{url_title}">
                                 <i class="fa fa-link fa-2x fa-fw"></i>
@@ -78,10 +84,9 @@
                     </ul>
                 </div>
 
-
-
             </div>
         </article>
+
 	    </li>
         {/exp:channel:entries}
         </ul>

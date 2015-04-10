@@ -8623,9 +8623,26 @@ body > .navbar > .container-fluid {
   right: 2%;
 }
 .navbar {
+  -webkit-transition: all 0.2s ease 0;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.2s ease 0;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 0;
+}
+.reduce {
+  -webkit-transition: all 0.2s ease 0;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.2s ease 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.reduce .menu-button {
+  top: 20px;
 }
 .navbar-brand {
   padding: 10px 15px;
@@ -8788,9 +8805,9 @@ body > .navbar > .container-fluid {
 }
 .search-header .search-icon {
   background: #f5f5f6;
-  color: #5c5168;
-  border: none;
+  color: #bfbfbf;
   border-radius: 0;
+  border: none;
 }
 *,
 *:before,

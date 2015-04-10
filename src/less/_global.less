@@ -32,9 +32,19 @@ body > .navbar > .container-fluid {
 }
 
 .navbar {
+  .transition ( all, 0.2s, ease);
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 0;
+}
+
+.reduce {
+  .transition ( all, 0.2s, ease);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .menu-button {
+    top: 20px;
+  }
 }
 
 .navbar-brand {
@@ -224,9 +234,9 @@ body > .navbar > .container-fluid {
   // Search icon
   .search-icon {
     background: mix(@brand-white, @brand-primary, 95%);
-    color: mix(@brand-white, @brand-primary, 15%);
-    border: none;
+    color: darken(@brand-white, 25%);
     border-radius: 0;
+    border: none;
   }
 }
 

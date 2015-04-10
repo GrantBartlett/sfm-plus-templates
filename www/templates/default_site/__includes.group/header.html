@@ -23,15 +23,15 @@
         <div class="collapse navbar-collapse" id="main-navigation">
             {exp:low_search:form collection="entry|sfm-plus" search_mode="all" result_page="search" form_class="navbar-form navbar-right hidden-sm search-header" form_id="search-form" form_role="search"}
             <div class="input-group">
-                <input type="text" class="form-control search" placeholder="{search_{language_code}}" name="keywords" id="keywords">
                 <span class="input-group-addon search-icon"><i class="fa fa-search fa-2x fa-fw"></i></span>
+                <input type="text" class="form-control search" placeholder="{search_{language_code}}" name="keywords" id="keywords">
             </div>
             {/exp:low_search:form}
 
             <ul class="nav navbar-nav navbar-right nav-items">
-                <li><a disabled>iStyle</a></li>
-                <li><a disabled>Competitions</a></li>
-                <li class="dropdown">
+                <li><a disabled data-toggle="tooltip" data-placement="bottom" title="Not yet available"> iStyle</a></li>
+                <li><a disabled data-toggle="tooltip"  data-placement="bottom" title="Not yet available">Competitions</a></li>
+                <li class="dropdown" data-toggle="tooltip" data-placement="bottom" title="Not yet available">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
