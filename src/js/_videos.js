@@ -3,6 +3,8 @@
  * Controls all iframe embeds on page and gives them an autoplay feature
  */
 
+$(function(){
+
 var players = {}; // All players on the page
 
 function onYouTubePlayerAPIReady() {
@@ -36,3 +38,5 @@ $('.play-video').hover(
         pauseYouTubeVideo(iframeID);
     }
 );
+
+})
