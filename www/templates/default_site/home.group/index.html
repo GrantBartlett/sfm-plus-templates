@@ -10,12 +10,8 @@
         <article class="clearfix" style="margin-bottom: 30px;">
             <div class="box play-{categories}{category_name}{/categories} {if entry_trending == 'yes'}trending{/if}" data-src="{video}">
 
-
-
                 <span class="entry-category">{categories} {category_name} {/categories}</span>
 	            <h1 class="entry-title"><a href="{base}{categories}{category_name}{/categories}/{url_title}">{entry_title_{language_code}}</a></h1>
-
-
 
 	            {if trending}
 	            <div class="trending-tag text-uppercase">
@@ -30,32 +26,32 @@
                 {exp:switchee variable="{categories}{category_name}{/categories}" parse="inward"}
                     {case value="video"}
 		            <div class="video">
-			            <div class="embed-responsive embed-responsive-16by9" >
+			            <div class="embed-responsive embed-responsive-16by9">
 				            <iframe id="yt_{entry_id}" class="embed-responsive-item" src="https://www.youtube.com/embed/{video}?showinfo=0&wmode=opaque&enablejsapi=1" frameborder="0"></iframe>
 			            </div>
 		            </div>
                     {/case}
                 {/exp:switchee}
 
-	            <ul class="slick-slides">
-		            {images limit="3"}
-		            <li>
-			            <figure class="post-thumb">
-				            <a href="{base}{categories}{category_name}{/categories}/{url_title}">
-					            <img src="{images:image}" class="img-responsive" alt="{entry_name_{language_code}}">
-				            </a>
-			            </figure>
-		            </li>
-		            {/images}
-	            </ul>
+	            <div class="flexslider">
+		            <ul class="slides">
+			            {images limit="3"}
+			            <li>
+				            <figure class="post-thumb">
+					            <a href="{base}{categories}{category_name}{/categories}/{url_title}">
+						            <img src="{images:image}" class="img-responsive" alt="{entry_name_{language_code}}">
+					            </a>
+				            </figure>
+			            </li>
+			            {/images}
+		            </ul>
+	            </div>
 
 	            {if entry_body_{language_code}}
                 <div class="entry-content">
                     <p>{entry_body_{language_code}}</p>
                 </div>
 	            {/if}
-
-
 
                 <div class="entry-meta clearfix">
                     <ul class="list-inline meta-items">

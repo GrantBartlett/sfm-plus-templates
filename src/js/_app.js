@@ -1,5 +1,7 @@
 $(function() {
 
+    initPackery();
+
     /**
      * Bootstrap tooltips
      */
@@ -20,16 +22,27 @@ $(function() {
      * @type {*|jQuery}
      */
 
-    $('.slick-slides').slick();
-    var $container = $('#container').imagesLoaded(function () {
-        // initialize Packery after all images have loaded
+    function initPackery() {
+        var $container = $("#container"),
+            $slider = $(".flexslider");
 
+        // Begin packery layout
         $container.packery({
             itemSelector: '.col-md-4',
-            columnWidth: '.col-md-4'
+            adaptiveHeight: true
         });
 
-    });
+        // Init Sliders
+        $slider.flexslider({
+            animation: "slide"
+        });
+
+        // Re-init Packery after all images have loaded
+        $container.imagesLoaded(function () {
+            $container.packery();
+        });
+    }
+
 
     /**
      * NavBar - fixed position on scroll
@@ -62,6 +75,7 @@ $(function() {
      * Resizing window
      */
     $(window).resize(function(){
-        $('.slick-slides').slick();
+
+
     });
 });
