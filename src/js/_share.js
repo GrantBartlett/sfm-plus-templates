@@ -81,10 +81,10 @@ function shareContent(container, type){
             if (postImg === undefined) {
                 return 'https://img.youtube.com/vi/' + vidImg + '/hqdefault.jpg';
             } else if (!vidImg) {
-                return 'http:' + postImg;
+                return postImg;
             } else {
                 // @TODO: Specify default meta image
-                return 'http:' + postImg;
+                return postImg;
             }
 
         })()
