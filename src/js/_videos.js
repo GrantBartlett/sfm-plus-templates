@@ -1,15 +1,11 @@
 /**
- * Youtube Video API
- * Controls all iframe embeds on page and gives them an autoplay feature
+ * Youtube Video Autoplay
+ * Controls all iFrame embeds on page and gives them an 'autoplay' feature.
  */
 
 var players = {}; // All players on the page
 
-/**
- * Auto Play Videos
- */
-
-$(function(){
+$(function () {
     $('.play-video').hover(
         function () {
             var iframeID = $(this).find('iframe').attr('id');
@@ -22,6 +18,9 @@ $(function(){
     );
 });
 
+/***
+ * YouTube API call
+ */
 function onYouTubePlayerAPIReady() {
     $('iframe').each(function (event) {
         var iframeID = $(this).attr('id');
@@ -29,12 +28,19 @@ function onYouTubePlayerAPIReady() {
     });
 }
 
+/***
+ * Play Video
+ * @param iframeID
+ */
 function playYouTubeVideo(iframeID) {
     players[iframeID].playVideo();
     players[iframeID].mute();
 }
 
+/***
+ * Pause Video
+ * @param iframeID
+ */
 function pauseYouTubeVideo(iframeID) {
     players[iframeID].pauseVideo();
 }
-

@@ -6,7 +6,6 @@ module.exports = function (grunt) {
         'node_modules/jquery-lazyload/jquery.lazyload.js',
         'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
         'node_modules/packery/dist/packery.pkgd.min.js',
-        'node_modules/slick-carousel/slick/slick.min.js',
         'src/**/**/.js',
         'src/**/*.js'
     ];
