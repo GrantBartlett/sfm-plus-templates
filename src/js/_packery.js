@@ -5,10 +5,7 @@ $(function () {
      * @type {*|jQuery|HTMLElement}
      */
 
-    var $container = $("#container"), $slider = $(".flexslider");
-
-    // Init Sliders
-    $slider.flexslider({animation: "slide", smoothHeight: true});
+    var $container = $("#container");
 
     // Init Packery Like this, according to docs
     var $container = $container.packery({
@@ -44,5 +41,10 @@ $(function () {
                 itemSelector: '.col-md-4'
             });
         });
+        $container.packery('on', 'layoutComplete', onLayout);
+    }
+
+    function onLayout() {
+        //$('.loading').fadeIn(500);
     }
 });

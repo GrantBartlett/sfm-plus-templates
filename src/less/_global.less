@@ -9,17 +9,12 @@ body > .navbar > .container-fluid {
   margin-top: 0;
 }
 
-
-
-
 // Global
 // ----------------------------------
 
 .home {
   background: mix(@brand-white, @brand-primary, 90%);
 }
-
-
 
 // Bootstrap NavBar
 // ----------------------------------
@@ -32,14 +27,14 @@ body > .navbar > .container-fluid {
 }
 
 .navbar {
-  .transition ( all, 0.2s, ease);
+  .transition (all, 0.2s, ease);
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 0;
 }
 
 .reduce {
-  .transition ( all, 0.2s, ease);
+  .transition (all, 0.2s, ease);
   padding-top: 10px;
   padding-bottom: 10px;
   .menu-button {
@@ -63,16 +58,22 @@ body > .navbar > .container-fluid {
   }
 }
 
-
-
-
 // Lazy Load images
 // ----------------------------------
 .lazy {
   display: none;
 }
 
+.loading {
+  .transition(all, 0.6s, ease);
+  opacity: 0;
+}
 
+.loading-complete {
+  .transition(all, 0.6s, ease);
+  opacity: 1;
+  display: block;
+}
 
 
 // Listings styles for Packery layout
@@ -80,7 +81,7 @@ body > .navbar > .container-fluid {
 .box {
 
   img {
-    .transition ( all, 0.6s, ease);
+    .transition (all, 0.6s, ease);
     .saturate(50%);
   }
 
@@ -94,7 +95,7 @@ body > .navbar > .container-fluid {
     text-transform: none;
   }
 
-  .entry-title, .entry-category{
+  .entry-title, .entry-category {
     padding: 0 25px;
   }
 
@@ -113,7 +114,10 @@ body > .navbar > .container-fluid {
 
   .entry-meta {
     .saturate(15%);
-    .transition ( all, 0.6s, ease);  a { .transition ( all, 0.6s, ease); }
+    .transition (all, 0.6s, ease);
+    a {
+      .transition (all, 0.6s, ease);
+    }
     font-family: @font-family-tertiary;
     font-weight: 300;
     padding: 25px;
@@ -147,9 +151,6 @@ body > .navbar > .container-fluid {
 
 }
 
-
-
-
 // Trending icon
 .trending {
   position: relative;
@@ -157,16 +158,13 @@ body > .navbar > .container-fluid {
   .trending-tag {
     color: darken(@brand-white, 15%);
     font-size: 11px;
-    .transition ( all, 0.6s, ease);
+    .transition (all, 0.6s, ease);
     position: absolute;
     padding: 25px 5px;
     right: 2%;
     top: 0;
   }
 }
-
-
-
 
 // Labels
 // -----------------------------------
@@ -175,13 +173,10 @@ body > .navbar > .container-fluid {
   font-size: 18px;
 }
 
-
-
-
 // Sliders
 // -----------------------------------
 .flex-direction-nav a:before {
-  font-size:30px;
+  font-size: 30px;
 }
 
 .flexslider {
@@ -189,16 +184,12 @@ body > .navbar > .container-fluid {
   border: none;
 }
 
-// Slick Slider
-.slick-slides {
-  opacity: 0;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.flex-direction-nav .flex-prev {
+  left: 0;
 }
 
-.slick-initialized {
-  opacity: 1!important;
+.flex-direction-nav .flex-next {
+  right: 0;
 }
 
 // Articles
@@ -211,9 +202,6 @@ body > .navbar > .container-fluid {
     margin: 1.5em 0;
   }
 }
-
-
-
 
 // Search form container
 // -----------------------------------
@@ -239,9 +227,6 @@ body > .navbar > .container-fluid {
     border: none;
   }
 }
-
-
-
 
 // Misc stuff
 // ----------------------------------

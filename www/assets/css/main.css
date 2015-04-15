@@ -8657,10 +8657,10 @@ html[xmlns] .flexslider .slides {
   content: '\f002';
 }
 .flex-direction-nav .flex-prev {
-  left: -50px;
+  left: 0;
 }
 .flex-direction-nav .flex-next {
-  right: -50px;
+  right: 0;
   text-align: right;
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
@@ -8844,6 +8844,23 @@ body > .navbar > .container-fluid {
 .lazy {
   display: none;
 }
+.loading {
+  -webkit-transition: all 0.6s ease 0;
+  -moz-transition: all 0.6s ease 0s;
+  -o-transition: all 0.6s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.6s ease 0;
+  opacity: 0;
+}
+.loading-complete {
+  -webkit-transition: all 0.6s ease 0;
+  -moz-transition: all 0.6s ease 0s;
+  -o-transition: all 0.6s ease 0;
+  /* Opera 10.5+ */
+  transition: all 0.6s ease 0;
+  opacity: 1;
+  display: block;
+}
 .box {
   background: #ffffff;
   margin: 15px;
@@ -8960,14 +8977,11 @@ body > .navbar > .container-fluid {
   margin-bottom: 0;
   border: none;
 }
-.slick-slides {
-  opacity: 0;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.flex-direction-nav .flex-prev {
+  left: 0;
 }
-.slick-initialized {
-  opacity: 1!important;
+.flex-direction-nav .flex-next {
+  right: 0;
 }
 .entry-content p {
   font-size: 1.0625em;

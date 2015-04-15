@@ -1,5 +1,16 @@
 $(function () {
 
+    var $slider = $(".flexslider");
+
+    // Init Sliders
+    $slider.flexslider({
+        animation: "slide",
+        useCSS: false,
+        animationLoop: false,
+        smoothHeight: false
+    });
+
+
     /**
      * NavBar - fixed position on scroll
      */
